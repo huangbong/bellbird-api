@@ -13,6 +13,11 @@ Installation
 ```
 git clone
 cd bellbird-api
+```
+
+Create a .env file with the `NODE_ENV`, `PG_CONNECTION_STRING`, and `HANDSHAKE_WEBHOOK` set correctly.
+
+```
 yarn install
 yarn start
 ```
@@ -25,7 +30,7 @@ Create an alarm
 POST /api/v1/alarms
 
 {
-  title: 'some stitle for the alarm'
+  title: 'some title for the alarm'
 }
 ```
 
