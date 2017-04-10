@@ -4,7 +4,10 @@ import Alarm from '../models/Alarm';
 import fetch from 'fetch-everywhere';
 
 router.get('/', (req, res) => {
-  Alarm.fetchAll()
+  new Alarm().query((qb) => {
+    qb.orderBy('created_at', 'DESC');
+  })
+  .fetchAll()
   .then((alarms) => {
     res.json(alarms);
   });
