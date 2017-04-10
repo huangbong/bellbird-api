@@ -1,6 +1,7 @@
 import express from 'express';
 const router = express.Router();
 import Alarm from '../models/Alarm';
+import fetch from 'fetch-everywhere';
 
 router.get('/', (req, res) => {
   Alarm.fetchAll()
@@ -15,7 +16,18 @@ router.post('/', (req, res) => {
   } = req.body;
   new Alarm({ title })
   .save()
-  .then(() => {
+  .then((alarm) => {
+    alarm = alarm.toJSON();
+    fetch(process.env.HANDSHAKE_WEBHOOK, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        alarm_id: alarm.id
+      })
+    });
     res.json({ success: 'ok' });
   });
 });
