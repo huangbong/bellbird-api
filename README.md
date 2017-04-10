@@ -1,6 +1,6 @@
 # bellbird-api
 
-RESTful API for bellbird.
+RESTful API for Bellbird.
 
 Requirements
 
