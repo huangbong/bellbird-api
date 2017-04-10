@@ -2,7 +2,20 @@
 
 RESTful API for bellbird.
 
-Takes a JSON body for any parameters.
+Requirements
+
+* Node >= 6.5.0
+* Yarn
+* PostgreSQL
+
+Installation
+
+```
+git clone
+cd bellbird-api
+yarn install
+yarn start
+```
 
 Methods
 
